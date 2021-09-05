@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+import json
+
+
+
+with open("/etc/config.json") as config_file:
+    config = json.load(config_file)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ox0w@o(0p__8i4uf!r%$hc$ut-g2qiq+v8*na7u+6_6lde8_q%'
+SECRET_KEY = config.get('DJANGO_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -149,9 +155,7 @@ MESSAGE_TAGS = {
 
 # Email config
 
-import json
-with open("/etc/config.json") as config_file:
-    config = json.load(config_file)
+
 
 
 EMAIL_HOST = 'smtp.gmail.com'
