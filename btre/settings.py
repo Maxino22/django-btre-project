@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pages.apps.PagesConfig',
     'listings.apps.ListingsConfig',
+    'contacts.apps.ContactsConfig',
     'realtors.apps.RealtorsConfig',
     'accounts.apps.AccountsConfig',
     'django.contrib.humanize'
@@ -145,3 +146,16 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
+
+# Email config
+
+import json
+with open("/etc/config.json") as config_file:
+    config = json.load(config_file)
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = config.get('MAIL_USERNAME')
+EMAIL_HOST_PASSWORD = config.get('MAIL_PASSWORD')
+EMAIL_USE_TLS =True
