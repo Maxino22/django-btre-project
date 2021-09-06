@@ -163,3 +163,9 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = config.get('MAIL_USERNAME')
 EMAIL_HOST_PASSWORD = config.get('MAIL_PASSWORD')
 EMAIL_USE_TLS =True
+
+
+try:
+    from .locl_settings import *
+except ImportError:
+    pass
