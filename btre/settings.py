@@ -152,6 +152,6 @@ MESSAGE_TAGS = {
 
 
 try:
-    from .locl_settings import *
+    from .local_settings import *
 except ImportError:
     pass
