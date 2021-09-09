@@ -84,8 +84,8 @@
             <img class="card-img-top" src="{{listing.photo_main.url}}" alt="">
             <div class="card-img-overlay">
               <h4>
-                <span class="badge badge-secondary mr-5 text-white">Ksh{{listing.price | intcomma}}</span>
-                <span class="badge badge-danger ml-5 text-white">
+                <span class="badge badge-secondary text-white">Ksh{{listing.price | intcomma}}</span>
+                <span class="badge badge-danger text-white">
                   {% if listing.property_type == 'R'%}
                     Rent
                     {% elif listing.property_type == 'S'%}

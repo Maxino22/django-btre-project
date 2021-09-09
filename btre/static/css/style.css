@@ -69,6 +69,26 @@ img {
 .listing-preview a {
   position: relative; }
 
+/* Images */
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
+}
+
+.listing-img {
+  height: 70px;
+  object-fit: cover;
+}
+
+.card-img-overlay h4 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-img-overlay h4 span {
+  margin: 0;
+}
+
 @media (max-width: 991px) {
   #showcase {
     padding-top: 4rem; }
@@ -93,4 +113,9 @@ img {
   #showcase h1 {
     font-size: 30px; }
   #showcase-inner h1 {
-    font-size: 40px; } }
+    font-size: 40px; }
+  
+  .listing-img {
+    display: none;
+  }
+}
