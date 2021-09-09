@@ -20,7 +20,7 @@ j
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.2.1/css/lightgallery.min.css" integrity="sha512-LeCCaxc1iF2UArsp3NWiOAz1mSLXFXmuiOm2n8gxOSnCXIltE27/NV9yGshWgHSCKNigfDiJUskpRiithdGc3A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 {% endblock  %}
 
-{% block title %} | {{listing.title}}{% endblock  %}
+ <title>{% block title %} | {{listing.title}}{% endblock  %}</title>
   
 {% endblock %}
 
@@ -60,7 +60,7 @@ j
   <div class="container">
     <a href="{% url 'listings' %}" class="btn btn-light mb-4">Back To Listings</a>
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-9" >
         <!-- Home Main Image -->
         <img src="{{listing.photo_main.url}}" alt="" class="img-main img-fluid mb-3">
         <!-- Thumbnails -->
@@ -148,17 +148,36 @@ j
             <button onclick="showPanel(0)">Description</button>
             <button onclick="showPanel(1)">Address</button>
             <button onclick="showPanel(2)">Details</button>
-            <button onclick="showPanel(3)">Ammenities</button>
+
         </div>
+         <!-- Description -->
+      <div class="tabPanel mt-4">
+        <div class="row mb-5">
+          <div class="col-md-12">
+           {{listing.description}}
+          </div>
+        </div>
+      </div>
+
+       <!-- ADDRESS -->
+       <div class="tabPanel mt-4">
+        <div class="row">
+        <div class="col-md-4">City: {{listing.city}} </div>
+        <div class="col-md-4"> Area:{{listing.city}}, {{listing.county}}</div>
+        <div class="col-md-4"> State/Country: {{listing.county}}/Kenya</div>
+     
+          <!-- end of col-md-4 -->
+        </div>
+      </div>
 
         <!--  Features -->
-       <div class="tabPanel">
+       <div class="tabPanel mt-4">
         <div class="row mb-5 fields">
           <div class="col-md-6">
             <ul class="list-group list-group-flush">
               <li class="list-group-item text-secondary">
                 <i class="fas fa-money-bill-alt"></i> Asking Price:
-                <span class="float-right">Ksh {{listing.price | intcomma}}</span>
+              <span class="float-right">Ksh {{listing.price | intcomma}}</span>
               </li>
               <li class="list-group-item text-secondary">
                 <i class="fas fa-bed"></i> Bedrooms:
@@ -202,113 +221,7 @@ j
         </div>
       </div>
 
-      <!-- Description -->
-      <div class="tabPanel">
-        <div class="row mb-5">
-          <div class="col-md-12">
-           {{listing.description}}
-          </div>
-        </div>
-      </div>
-
-      <!-- Description -->
-      <div class="tabPanel">
-        <div class="row mb-5">
-          <div class="col-md-4">
-           City: {{listing.county}}
-          </div>
-          <div class="col-md-4">
-           City: {{listing.city}}
-          </div>
-          <div class="col-md-4">
-           State/Country: {{listing.county}} Kenya
-          </div>
-          <div class="col-md-4">
-           Country: <span class="text-muted" >Kenya</span> 
-          </div>
-        </div>
-      </div>
-      <!-- Amenities -->
-      <div class="tabPanel">
-        <div class="row">
-          <div class="col-md-4">
-            <ul class="list-group list-group-flush">
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-group list-group-flush">
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-group list-group-flush">
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-              <li class="list-item" style="list-style: none;">
-                <i class="fas fa-check"></i> Fire Place
-              </li>
-            </ul>
-          </div>
-          <!-- end of col-md-4 -->
-        </div>
-      </div>
+     
 
       <!-- end of tabcontainer -->
       </div>
@@ -387,6 +300,7 @@ j
   </div>
 </div>
 
+
 <script>
   var tabButtons=document.querySelectorAll(".tabContainer .buttonContainer button");
 var tabPanels=document.querySelectorAll(".tabContainer  .tabPanel");
@@ -406,4 +320,5 @@ function showPanel(panelIndex) {
 showPanel(0);
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.2.1/lightgallery.min.js" integrity="sha512-DHzj0Pb74Okp1KYj1vRYZ2kZKQtScr+ilk0w8lEjHgU4OvRKOGecRAEkejpBPlzmY1L2pU7m9o1DAk6Tmex/Eg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 {% endblock  %}
