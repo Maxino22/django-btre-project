@@ -89,13 +89,23 @@ img {
   margin: 0;
 }
 
+@media only screen and (max-width : 1824px) {
+#slide{
+  display: none;
+}
+}
+
 @media (max-width: 991px) {
   #showcase {
     padding-top: 4rem; }
     #showcase h1 {
       font-size: 40px; }
   .hide-md-down {
-    display: none; } }
+    display: none; }
+  #slide{
+    display: none;
+  }  
+  }
 
 @media (max-width: 768px) {
   #showcase {
@@ -117,5 +127,11 @@ img {
   
   .listing-img {
     display: none;
+  }
+  #mobi{
+    display: none;
+  }
+  #slide{
+    display: block;
   }
 }
